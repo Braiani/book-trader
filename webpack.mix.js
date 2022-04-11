@@ -16,3 +16,7 @@ mix.sass(
     "resources/scss/soft-ui-dashboard.scss",
     "public/assets/css/soft-ui-dashboard.css"
 );
+mix.browserSync({
+    proxy: 'localhost',
+    open: false,
+});

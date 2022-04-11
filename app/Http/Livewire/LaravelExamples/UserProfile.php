@@ -8,11 +8,11 @@ use Livewire\Component;
 class UserProfile extends Component
 {
     public User $user;
-    public $showSuccesNotification  = false;
+    public bool $showSuccessNotification  = false;
 
-    public $showDemoNotification = false;
-    
-    protected $rules = [
+    public bool $showDemoNotification = false;
+
+    protected array $rules = [
         'user.name' => 'max:40|min:3',
         'user.email' => 'email:rfc,dns',
         'user.phone' => 'max:10',
@@ -20,7 +20,7 @@ class UserProfile extends Component
         'user.location' => 'min:3'
     ];
 
-    public function mount() { 
+    public function mount() {
         $this->user = auth()->user();
     }
 
@@ -30,7 +30,7 @@ class UserProfile extends Component
         } else {
             $this->validate();
             $this->user->save();
-            $this->showSuccesNotification = true;
+            $this->showSuccessNotification = true;
         }
     }
     public function render()
